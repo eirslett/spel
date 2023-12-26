@@ -142,6 +142,14 @@ class ELToTypeScriptVisitor extends BaseVisitor {
     const operator = ctx.operator[0].tokenType.name.toLowerCase();
 
     if (operator === "empty") {
+      // isEmpty(<expression>)
+      return ts.factory.createCallExpression(
+        ts.factory.createIdentifier("isEmpty"),
+        undefined,
+        [this.visit(ctx.expression[0])]
+      );
+
+      /*
       // <expression>.length === 0
       return ts.factory.createBinaryExpression(
         ts.factory.createPropertyAccessExpression(
@@ -151,6 +159,7 @@ class ELToTypeScriptVisitor extends BaseVisitor {
         ts.factory.createToken(ts.SyntaxKind.EqualsEqualsEqualsToken),
         ts.factory.createNumericLiteral("0")
       );
+      */
     } else {
       let token;
       switch (operator) {

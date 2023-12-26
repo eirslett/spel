@@ -87,7 +87,7 @@ test("not-expression", () => {
 
 test("empty-expression", () => {
   const result = toTypeScript("#{empty a}");
-  assert.deepEqual(print(result), `a.length === 0`);
+  assert.deepEqual(print(result), `isEmpty(a)`);
 });
 
 test("Illegal expression (not terminated)", () => {
