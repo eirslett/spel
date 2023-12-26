@@ -1,0 +1,23 @@
+{
+  "name": "spel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --no-warnings=ExperimentalWarning --loader @swc-node/register/esm --test *.test.ts",
+    "test-only": "node --no-warnings=ExperimentalWarning --loader @swc-node/register/esm --test-only *.test.ts",
+    "start": "swc-node index.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chevrotain": "^11.0.3",
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "prettier": "^3.1.1",
+    "swc-node": "^1.0.0"
+  }
+}
